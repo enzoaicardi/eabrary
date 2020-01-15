@@ -1,0 +1,289 @@
+*{
+    font-family: 'Montserrat Alternates', sans-serif;
+
+    /* COULEURS */
+
+    /* white : #ffffff */
+    /* black : #000000 */
+    --textgray: #555555;
+    --bordergray : #cccccc;
+
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+    supported by Chrome, Opera and Firefox */
+
+    outline: 0;
+
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: white;
+}
+
+/* Header de la page entiere */
+
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: calc(100% - 40px);
+    height: 50px;
+
+    margin: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    background-color: white;
+    border-bottom: 1px solid var(--bordergray);
+}
+
+    .header h1, .header a{
+        margin: 0;
+
+        color: var(--textgray);
+        font-size: 24px;
+        font-weight: 300;
+        text-decoration: none;
+    }
+
+        .header h1 span{
+            display: inline-block;
+
+            max-width: 80px;
+
+            transition: all 1s ease;
+        }
+
+/* Header du main */
+
+.main-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    margin: 0;
+    padding: 0;
+}
+
+    .main-header h1{
+        max-width: 480px;
+
+        margin: 0;
+        margin-top: 40px;
+        
+        color: var(--textgray);
+        font-size: 24px;
+        font-weight: 600;
+        text-align: center;
+
+        filter: opacity(0);
+        transition-timing-function: ease;
+    }
+
+    .main-header p{
+        max-width: 360px;
+
+        margin: 0;
+        margin-top: 20px;
+        padding-bottom: 40px;
+
+        border-bottom: 1px solid var(--bordergray);
+
+        color: var(--textgray);
+        font-size: 18px;
+        font-weight: 300;
+        text-align: center;
+    }
+
+/* Section de demos & visuels */
+
+.page-list{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    max-width: 1128px;
+
+    margin: 0;
+    margin-top: 40px;
+    padding: 0;
+}
+
+.demo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 240px;
+    height: 360px;
+
+    margin: 20px;
+
+    /* border: 1px solid black; */
+    border-radius: 10px 10px 120px 120px;
+    background-image: linear-gradient(to top right, #777, #444);
+
+    /* filter: opacity(0); */
+}
+
+    .demo-sandbox{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 200px;
+        height: 200px;
+
+        margin: 20px;
+        margin-bottom: 0;
+
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .demo-title{
+        display: block;
+
+        width: 200px;
+        height: 30px;
+
+        margin: 0;
+        margin-top: 20px;
+
+        border-top: 1px solid white;
+
+        line-height: 30px;
+        text-align: center;
+    }
+
+        .demo-title > a{
+            color: white;
+            font-size: 18px;
+            font-weight: 400;
+            text-decoration: none;
+        }
+
+    .demo-button{
+        cursor: pointer;
+
+        width: 100px;
+        height: 40px;
+
+        margin: 0;
+        margin-top: 20px;
+
+        border: none;
+        background-color: white;
+        border-radius: 20px;
+
+        line-height: 40px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        color: var(--textgray);
+        font-weight: 500;
+    }
+
+/* Demo 1 - progresscircle animation */
+
+.demo-sandbox .ea-progresscircle{
+    width: 200px;
+    height: 200px;
+    /* filter: drop-shadow(0 0 3px black); */
+}
+
+    .demo-sandbox .ea-p-circle{
+        display: none;
+        transition-timing-function: ease;
+        stroke: #15d0dd;
+    }
+
+    .demo-sandbox .ea-b-circle{
+        display: block;
+        stroke: white;
+    }
+
+    .demo-sandbox .ea-p-text{
+        display: none;
+        fill: #15d0dd;
+        font-size: 26px;
+        font-style: italic;
+        font-weight: 600;
+    }
+
+    .progresscircle-button{
+        background-color: #15d0dd;
+    }
+
+/* Demo 2 - deletetextpart animation */
+
+.ea-deletetextpart div{
+    display: inherit;
+    flex-direction: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+
+    margin: 0;
+    padding: 10px;
+
+    border: 5px solid var(--bordergray);
+    /* border-radius: 20px; */
+}
+
+    .ea-deletetextpart h4{
+        margin: 0;
+
+        font-size: 18px;
+        color: #ccc;
+        font-weight: 600;
+    }
+
+    .ea-deletetextpart p{
+        margin: 0;
+
+        font-size: 16px;
+        color: #aaa;
+        font-weight: 600;
+    }
+
+        .ea-dtp{
+            transition: all 1s ease;
+        }
+
+    .deletetextpart-button{
+        background-color: var(--bordergray);
+    }
+
+/* Demo 3 - fadeelement animation */
+
+.custom-fadeelement{
+
+    width: 70%;
+    height: 70%;
+    /* background-color: #15d0dd; */
+}
+
+
+    .fadeelement-button{
+        background-color: rgb(214, 111, 255);
+    }
