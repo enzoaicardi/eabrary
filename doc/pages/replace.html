@@ -1,0 +1,38 @@
+
+    <h3 class="method">. replace</h3>
+
+    <p>Permet de d'enlever une valeur à une propriété css d'un élément du DOM.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'</span>).replace(<span class="property">property, value, new-value</span>);</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+            <code><span class="property">property</span> :string</code>
+            <p>Définit la propriété css à laquelle remplacer une valeur pour l'élément selectionné.</p>
+
+            <code><span class="property">value</span> :string</code>
+            <p>Définit la valeur de la propriété à remplacer.<br></p>
+
+            <code><span class="property">new-value</span> :string</code>
+            <p>Définit la valeur de remplacement.<br></p>
+            
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+
+        <p>Replace peut être utilisée pour remplacer une propriété de transition comme ci-dessous :</p>
+        <p><code class="comment">// CSS de départ : transition: padding-right 2s linear</code><br><br>
+        <code>ea(<span class="string">'selecteur'</span>).replace(<span class="string">'transition', 'padding-right 2s linear', 'margin-top 1s ease'</span>);</code><br><br>
+        <code class="comment">// CSS d'arrivée : transition: margin-top 1s ease</code></p>
+
+
+    </div>
+
+                

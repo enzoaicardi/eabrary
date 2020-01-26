@@ -1,0 +1,105 @@
+
+    <h3 class="method">. animate</h3>
+
+    <p>Permet de créer une animation complexe sur un ou plusieurs éléments du DOM.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'</span>).animate(<span class="property">array, wait-the-end</span>);</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+            <code><span class="property">array</span> :array</code>
+            <p>Il s'agit de spécifier un tableau de propriétés et de valeurs pour créer une animation complexe rapidement.
+            Nous conseillons l'utilisation de cette méthode plutôt qu'un enchaînement de set, add, delay... Cette méthode est plus sûre et performante.</p>
+
+            <p>Voir la section ci-dessous pour plus d'informations.</p>
+
+            <code><span class="property">wait-the-end</span> :boolean <span class="comment">//optionnel</span></code>
+            <p>Spécifiez "true" si vous souhaité que chaque animation se déclanche après celle d'avant.</p>
+
+    </div>
+
+    <div class="arguments">
+
+        <h4>Array</h4>
+
+        <p>Le tableau peut être spécifié au préalable et appelé via une variable ou être directement passé dans la chaîne d'arguments de la méthode animate.
+        <br>Le tableau se rédige de cette manière :</p>
+
+        <code>[<br><br>
+            &emsp;<span class="comment">durée(ms)</span>,{<br><br>
+                &emsp;&emsp;&emsp;<span class="property">propriété:</span><span class="string"> 'valeur'</span>,&emsp;<br>
+                &emsp;&emsp;&emsp;<span class="property">propriété:</span><span class="string"> 'valeur'</span><br><br>
+            &emsp;},<span class="string">'timing-function'</span>,<br><br>
+            &emsp;<span class="comment">durée(ms)</span>,{<br><br>
+                &emsp;&emsp;&emsp;<span class="property">propriété:</span><span class="string"> 'valeur'</span>,<br>
+                &emsp;&emsp;&emsp;<span class="property">propriété:</span><span class="string"> 'valeur'</span><br><br>
+            &emsp;} <br><br>
+        ]</code><br><br>
+
+        <p>Ainsi dans l'exemple ci-dessous :</p>
+        <code>[<br><br>
+            &emsp;<span class="comment">1000</span>,{<br><br>
+                &emsp;&emsp;&emsp;<span class="property">backgroundColor:</span><span class="string"> 'red'</span>,&emsp;<br>
+                &emsp;&emsp;&emsp;<span class="property">delay:</span><span class="string"> 1000</span><br><br>
+            &emsp;},<br><br>
+            &emsp;<span class="comment">500</span>,{<br><br>
+                &emsp;&emsp;&emsp;<span class="property">backgroundColor:</span><span class="string"> 'blue'</span><br><br>
+            &emsp;}, <span class="string">'ease'</span> <br><br>
+        ]</code><br>
+
+        <p>On commence par un changement de couleur de fond à 'red' qui prendra 1s. Ensuite on ajoute un delais de 1s pour la prochaine animation.<br>
+        Une fois ce temps écoulé on change la courbe de bézier de 'linear' à 'ease', puis on on oppére un chagement la couleur de fond à 'blue' qui prendra 0.5s.</p>
+
+        <h4>Mode sans-délais</h4>
+
+        <p>Il est aussi possible d'activer le mode "nodelay" comme ceci :</p>
+        <code>[<br><br>
+            &emsp;<span class="string">'nodelay'</span><br><br>
+            &emsp;<span class="comment">1000</span>,{<br><br>
+                &emsp;&emsp;&emsp;<span class="property">backgroundColor:</span><span class="string"> 'red'</span>,&emsp;<br>
+                &emsp;&emsp;&emsp;<span class="property">delay:</span><span class="string"> 1000</span><br><br>
+            &emsp;},<br><br>
+            &emsp;<span class="comment">500</span>,{<br><br>
+                &emsp;&emsp;&emsp;<span class="property">backgroundColor:</span><span class="string"> 'blue'</span><br><br>
+            &emsp;}, <span class="string">'ease'</span> <br><br>
+        ]</code><br>
+        <p>Ainsi toutes les animations se produiront en même temps avec leur propre timing et fonction, seule la propriété "delay" permet d'ajouter du delais à toutes les animations qui suivent.</p>
+
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+        <p>click on the box event</p>
+
+        <article class="sandbox">
+
+        </article>
+
+        <i>animate en mode delais</i>
+
+    </div>
+
+    <!-- Execution du script -->
+    <img width="0" height="0" src="pages/onload.svg" onload="
+        ea('.sandbox').on('click', function(e){
+
+        if(sleep(e, 2400)==true){return false;}
+        ea('.sandbox').animate([
+            1000,{
+               backgroundColor: 'red', 
+               delay: 1000
+             },
+             500,{
+               transitionTimingFunction: 'ease',
+               backgroundColor: 'blue'
+             }
+
+            ]);
+    });">
+                

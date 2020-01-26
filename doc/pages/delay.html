@@ -1,0 +1,42 @@
+
+    <h3 class="method">. delay</h3>
+
+    <p>Permet d'ajouter du delais à la méthode qui suit.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'</span>).delay(<span class="property">duration</span>);</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+            <code><span class="property">duration</span> :number</code>
+            <p>Définit le temps d'attente avant l'execution de la méthode qui suit, attention car les méthodes suivantes sont affectées par cet interval dans le cas d'un chaînage de propriétés.<br>
+            Cet argument peut prendre la valeur <code class="string">'reset'</code> pour annuler le delais dans le cas d'un chaînage. Cependant cette valeur n'est presque jamais requise si votre code est bien organisé, nous ne conseillons donc pas son utilisation.</p>
+
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+        <p>click on the box event</p>
+
+        <article class="sandbox">
+
+            <p>background</p>
+
+        </article>
+
+        <i>set background-color black after 2000ms</i>
+
+    </div>
+
+    <!-- Execution du script -->
+    <img width="0" height="0" src="pages/onload.svg" onload="
+        ea('.sandbox').on('click', function(e){
+        ea('.sandbox').delay(2000).set('background-color', '#222222');
+        console.log('event fired');}, true);
+    ">
+                

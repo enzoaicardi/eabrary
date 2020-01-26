@@ -1,0 +1,32 @@
+
+    <h3 class="method">. off</h3>
+
+    <p>Permet de détacher tout les événements d'un élément du DOM et de tous ces enfants.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'</span>).off();</code>
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+        <p>click on the box event</p>
+
+        <article class="sandbox">
+
+            <p>not clicked</p>
+
+        </article>
+
+        <i>onclick : replace text content random number,<br>
+        delete all listeners</i>
+
+    </div>
+
+    <!-- Execution du script -->
+    <img width="0" height="0" src="pages/onload.svg" onload="
+        function customFunction(){}
+        ea('.sandbox').on('click', function customFunction(){document.querySelector('.sandbox p').textContent = Math.floor(Math.random() * 100);ea('.sandbox').off();}, true);
+    ">
+                

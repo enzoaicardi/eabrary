@@ -1,0 +1,27 @@
+
+    <h3 class="method">. ea ('selecteur')</h3>
+
+    <p>Selectionne un élément du DOM.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'<span class="sign">, </span><span class="property">entrée</span><span class="base"> || </span>'entrées'</span>)</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+            <code><span class="property">selecteur</span> :string</code>
+            <p>Chemin css (querySelector) correspondant à l'élément cible.</p>
+
+            <code><span class="property">entrée</span> :number <span class="comment">//optionnel</span></code>
+            <p>Si aucune entrée n'est définie le selecteur pointra vers toutes les entrées correspondantes.<br>
+            Si une entrée de type :number est définie le selecteur pointra vers l'entrée correpondante (les entrées commencent par 0).</p>
+            
+            <code><span class="property">entrées</span> :string <span class="comment">//optionnel</span></code>
+            <p>Si une entrée de type <code class="string">"0, 1, 4"</code> est définie le selecteur pointra vers les entrées correpondantes 0, 1, 4 en ignorant 2 et 3.<br>
+                Si une entrée de type <code class="string">"3 > 5"</code> est définie le selecteur pointra vers les entrées comprises entre 3 et 5 en incluant les bornes (ici 3 et 5).</p>
+
+    </div>
+                

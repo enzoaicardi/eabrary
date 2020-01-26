@@ -1,0 +1,40 @@
+
+    <h3 class="method">sleep</h3>
+
+    <p>Fait en sorte qu'une fonction ne puisse s'executer qu'à des intervals minimums.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>sleep(<span class="property">key || event, duration, function</span>);</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+            <code><span class="property">key</span> :number</code>
+            <p>Le plus simple. Correspond à la clé donnée à la fonction afin de l'identifier précisement.</p>
+
+            <code><span class="property">event</span> :variable</code>
+            <p>Variable correspondant à l'événement au sein du listener.</p>
+
+            <code><span class="property">duration</span> :number</code>
+            <p>Définit le temps d'attente entre deux executions.</p>
+
+            <code><span class="property">function</span> :function <span class="comment">//optionnel</span></code>
+            <p>Définit la fonction qui ne doit s'éxecuter qu'une seule fois.</p>
+            
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+        <p>1 - <code>sleep(<span class="comment">1</span>, <span class="comment">delay</span>, ()<span class="this">=></span>{<span class="property">modifyProperty = modified</span>;});</code></p>
+        <p>2 - <code><span class="condition">if</span>(sleep(<span class="comment">1</span>, <span class="comment">delay</span>)==<span class="this">true</span>){<span class="condition">return </span><span class="this">false</span>;}<span class="property">modifyProperty = modified</span>;</code></p>
+        <p>3 - <code>sleep(<span class="property">e</span>, <span class="comment">delay</span>, ()<span class="this">=></span>{<span class="property">modifyProperty = modified</span>;});</code></p>
+        <p>4 - <code><span class="condition">if</span>(sleep(<span class="property">e</span>, <span class="comment">delay</span>)==<span class="this">true</span>){<span class="condition">return </span><span class="this">false</span>;}<span class="property">modifyProperty = modified</span>;</code></p>
+
+    </div>
+
+
+                

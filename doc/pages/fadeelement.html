@@ -1,0 +1,76 @@
+
+    <h3 class="method">. fadeElement</h3>
+
+    <p>Permet d'appliquer un mouvement et un effet de fondu sur un élément du DOM.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'</span>).fadeElement(<span class="property">start-value, end-value, direction, animation-duration</span>);</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+            <code><span class="property">start-value</span> :string</code>
+            <p>Définit la position de départ de l'élément à faire apparaitre.</p>
+
+            <code><span class="property">end-value</span> :string</code>
+            <p>Définit la position de fin de l'élément à faire apparaitre.</p>
+
+            <code><span class="property">direction</span> :string</code>
+            <p>Définit la direction de la transition : "vt" (vertical) ou "hz" (horizontal).</p>
+
+            <code><span class="property">animation-duration</span> :number</code>
+            <p>Définit la durée de l'animation.</p>
+
+    </div>
+
+    <div class="practice">
+
+        <h4>HTML / CSS</h4>
+
+        <p>La structure suivante est necessaire pour permettre la création du fadeElement.<br>
+            La balise "div" peut être remplacée par n'importe quelle balise de type block.</p>
+
+        <code>
+
+            &lt;div class=<span class="string">"custom"</span>&gt;&lt;/div&gt;
+            
+        </code>
+
+        <p>Les classes par défaut permettent de définir si l'élément doit être visible ou non au départ.</p>
+        <code>.ea-default-fadeelement-hidden<br>
+            .ea-default-fadeelement-visible</code>
+                    
+        <p>Les éléments suivant sont personnalisables</p>
+        <code>
+            div
+        </code>
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+        <p>click on the box event</p>
+
+        <article class="sandbox">
+
+            <img class="custom-fadeelement" src="../assets/img/fiole-3.svg">
+
+        </article>
+
+        <i>fade 0px to 140px and fade -100px to 0px</i>
+
+    </div>
+
+    <!-- Execution du script -->
+    <img width="0" height="0" src="pages/onload.svg" onload="
+        ea('.sandbox').on('click', function(e){
+        if(sleep(e, 2400)==true){return false;}
+        ea('.custom-fadeelement').fadeElement('0px', '140px', 'vt', 1)
+        .delay(1400).fadeElement('140px', '-100px', 'vt', 0)
+        .delay(1400).fadeElement('-100px', '0px', 'vt', 1);
+    }
+    );">
+                

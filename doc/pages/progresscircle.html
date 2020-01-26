@@ -1,0 +1,85 @@
+
+    <h3 class="method">. progressCircle</h3>
+
+    <p>Transforme une balise svg en cercle de progression.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'</span>).progressCircle(<span class="property">radius, stroke-width, rotate-angle, percent, animation-duration</span>);</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+            <code><span class="property">radius</span> :number</code>
+            <p>Définit le rayon du cercle de chargement.</p>
+
+            <code><span class="property">stroke-width</span> :number</code>
+            <p>Définit l'épaisseur de la bordure du cercle de chargement.</p>
+
+            <code><span class="property">rotate-angle</span> :string</code>
+            <p>Définit l'angle de rotation du cercle, par défaut le cercle pointe vers la droite. Pour le faire pointer vers le haut la valeur doit être de -90.</p>
+
+            <code><span class="property">percent</span> :number</code>
+            <p>Définit le pourcentage de remplissage du cercle ainsi que le nombre affiché en son centre.</p>
+
+            <code><span class="property">animation-duration</span> :number</code>
+            <p>Définit la durée de l'animation.</p>
+
+    </div>
+
+    <div class="practice">
+
+        <h4>HTML / CSS</h4>
+
+        <p>La structure suivante est necessaire pour permettre la création du progressCircle.</p>
+
+        <code>
+            &lt;svg xmlns=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;<br>
+                &emsp;&lt;circle class=<span class="string">"ea-b-circle" /</span>&gt;<br>
+                &emsp;&lt;circle class=<span class="string">"ea-p-circle" /</span>&gt;<br>
+                &emsp;&lt;text class=<span class="string">"ea-p-text"</span>&gt;&lt;/text&gt;<br>
+            &lt;/svg&gt;
+        </code>
+
+        <p>La classe par défaut est à appliquer au conteneur svg.</p>
+        <code>.ea-default-progresscircle</code>
+                    
+        <p>Les éléments suivant sont personnalisables</p>
+        <code>
+            svg<br>
+            .ea-b-circle<br>
+            .ea-p-circle<br>
+            .ea-p-text
+        </code>
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+        <p>click on the box event</p>
+
+        <article class="sandbox">
+
+            <svg class="ea-default-progresscircle" xmlns="http://www.w3.org/2000/svg">
+                <circle class="ea-b-circle" />
+                <circle class="ea-p-circle" />
+                <text class="ea-p-text"></text>
+            </svg>
+
+        </article>
+
+        <i>generate random percent number</i>
+
+    </div>
+
+    <!-- Execution du script -->
+    <img width="0" height="0" src="pages/onload.svg" onload="
+        ea('.ea-default-progresscircle').progressCircle(72, 8, '-90', 75, 0);
+        ea('.sandbox').on('click', function(e){
+            if(sleep(e, 1200)==true){return false;}
+            ea('.ea-default-progresscircle').cssbezier('linear').progressCircle(72, 8, '-90', Math.floor(Math.random() * 100), 1);
+        }
+    );">
+                

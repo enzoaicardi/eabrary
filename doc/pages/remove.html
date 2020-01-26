@@ -1,0 +1,35 @@
+
+    <h3 class="method">. remove</h3>
+
+    <p>Permet de d'enlever une valeur à une propriété css d'un élément du DOM.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'</span>).remove(<span class="property">property, value</span>);</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+            <code><span class="property">property</span> :string</code>
+            <p>Définit la propriété css à laquelle retirer une valeur pour l'élément selectionné.</p>
+
+            <code><span class="property">value</span> :string</code>
+            <p>Définit la valeur à retirer à la propriété.<br></p>
+            
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+
+        <p>Remove peut être utilisée pour retirer une propriété de transition comme ci-dessous :</p>
+        <p><code class="comment">// CSS de départ : transition: padding-right 2s linear, margin-top 1s ease</code><br><br>
+        <code>ea(<span class="string">'selecteur'</span>).remove(<span class="string">'transition', 'margin-top 1s ease'</span>);</code><br><br>
+        <code class="comment">// CSS d'arrivée : transition: padding-right 2s linear</code></p>
+
+
+    </div>
+
+                

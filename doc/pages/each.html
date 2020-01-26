@@ -1,0 +1,44 @@
+
+    <h3 class="method">. each</h3>
+
+    <p>Créer une boucle qui s'execute pour chaque élément du DOM selectionné.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'</span>).each(<span class="this">function</span>(<span class="property">item, index</span>){ <span class="comment">// Do something...</span> });</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+            <code><span class="property">item, index</span> :arguments</code>
+            <p>Ils doivent être spécifiés comme arguments de fonction afin de pouvoir être réutilisés dans celle-ci, ainsi <code class="property">item</code> correspond à l'élément du DOM sélectionné et <code class="property">index</code> à son index de tableau.</p>
+
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+        <p>click on the box event</p>
+
+        <article class="sandbox">
+
+            <p>text 1</p>
+            <p>text 2</p>
+            <p>text 3</p>
+
+        </article>
+
+        <i>set each backgrounds to red</i>
+
+    </div>
+
+    <!-- Execution du script -->
+    <img width="0" height="0" src="pages/onload.svg" onload="
+        ea('.sandbox').on('click', function(e){
+        ea('.sandbox p').each(function(item){
+            item.style.backgroundColor = 'red';
+        })}, true);
+    ">
+                

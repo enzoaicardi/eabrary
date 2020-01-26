@@ -1,0 +1,45 @@
+
+    <h3 class="method">. cssduration</h3>
+
+    <p>Permet de changer la propriété css transition-duration d'un élément du DOM.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'</span>).cssduration(<span class="property">property</span>);</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+            <code><span class="property">property</span> :number</code>
+            <p>Définit la propriété transition-duration de l'élément. Par exemple <code class="comment">'1.5'</code></p>
+
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+        <p>click on the box event</p>
+
+        <article class="sandbox">
+
+            <p>background</p>
+
+        </article>
+
+        <i>set cssduration to 3s</i>
+
+    </div>
+
+    <!-- Execution du script -->
+    <img width="0" height="0" src="pages/onload.svg" onload="
+        setInterval(() => {
+            ea('.sandbox').set('background-color', '#222222');
+            ea('.sandbox').delay(3000).set('background-color', '#cccccc');
+        }, 6000);
+        ea('.sandbox').on('click', function(e){
+        ea('.sandbox').cssduration(3);
+        console.log('event fired');}, true);
+    ">
+                

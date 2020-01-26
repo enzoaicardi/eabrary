@@ -1,0 +1,42 @@
+
+    <h3 class="method">. cssdelay</h3>
+
+    <p>Permet de changer la propriété css transition-delay d'un élément du DOM.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'</span>).cssdelay(<span class="property">property</span>);</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+            <code><span class="property">property</span> :string</code>
+            <p>Définit la propriété transition-delay de l'élément. Par exemple <code class="string">2.5</code></p>
+
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+        <p>click on the box event</p>
+
+        <article class="sandbox">
+
+            <p>background</p>
+
+        </article>
+
+        <i>set cssdelay to 3s</i>
+
+    </div>
+
+    <!-- Execution du script -->
+    <img width="0" height="0" src="pages/onload.svg" onload="
+        ea('.sandbox').transition('1s ease');
+        ea('.sandbox').on('click', function(e){
+        ea('.sandbox').cssdelay(3).set('background-color', '#222222');
+        console.log('event fired');}, true);
+    ">
+                

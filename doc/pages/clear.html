@@ -1,0 +1,43 @@
+
+    <h3 class="method">. clear</h3>
+
+    <p>Permet de de retirer une propriété css d'un élément du DOM.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'</span>).clear(<span class="property">property</span>);</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+            <code><span class="property">property</span> :string</code>
+            <p>Définit la propriété css à supprimer.</p>
+            
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+        <p>click on the box event</p>
+
+        <article class="sandbox">
+
+            <p>background</p>
+
+        </article>
+
+        <i>clear background-color</i>
+
+    </div>
+
+    <!-- Execution du script -->
+    <img width="0" height="0" src="pages/onload.svg" onload="
+        ea('.sandbox').set('background-color', '#222222');
+        ea('.sandbox').on('click', function(e){
+        ea('.sandbox').clear('background-color');
+        console.log('event fired');}, true);
+    ">
+
+                

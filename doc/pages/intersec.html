@@ -1,0 +1,55 @@
+
+    <h3 class="method">. intersec</h3>
+
+    <p>Permet d'attacher un événement à un élément du DOM.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'</span>).intersec(<span class="property">parent, ratio, fonction, side</span>);</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+            <code><span class="property">parent</span> :string</code>
+            <p>Définit l'élément parent avec lequel le selecteur doit se croiser.</p>
+
+            <code><span class="property">ratio</span> :number</code>
+            <p>Compris entre 0 et 1 le ratio représente le pourcentage de visibilité du selecteur necessaire au déclenchement de la fonction.</p>
+
+            <code><span class="property">fonction</span> :function</code>
+            <p><p>Définit la fonction à executer lors du déclenchement de l'évènement : <code>
+                <span class="this">function</span>() { <span class="comment">// Do something...</span> }
+            </code> ou <code>
+                () <span class="this">=></span> { <span class="comment">// Do something...</span> }
+            </code></p>
+
+            <code><span class="property">side</span> :string <span class="comment">//optionnel</span></code>
+            <p>Définit si l'événement doit se déclencher lors d'un croisement sur le "top", "bottom", "left" ou "right" de l'élément parent.</p>
+
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+        <p>scroll the box event</p>
+
+        <article class="sandbox" style="overflow-y: scroll;justify-content: flex-start;">
+
+            <p>scroll</p>
+            <div class="intersec" style="margin-top: 300px;margin-bottom: 400px;flex: none;width: 100px;height: 100px;padding: 0;border: 1px solid black;"></div>
+
+        </article>
+
+        <i>set background-color blue when intersec bottom of sandbox with 80% visibility</i>
+
+    </div>
+
+    <!-- Execution du script -->
+    <img width="0" height="0" src="pages/onload.svg" onload="
+        ea('.sandbox > div').intersec('.sandbox', 0.8, function(e){
+            ea('.sandbox > div').set('background-color', 'blue');
+        }, 'bottom');
+    ">
+                

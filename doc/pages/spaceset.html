@@ -1,0 +1,37 @@
+
+    <h3 class="method">. spaceset</h3>
+
+    <p>Permet de définir une propriété css à un élément du DOM.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'</span>).spaceset(<span class="property">property, inside-property, value</span>);</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+            <code><span class="property">property</span> :string</code>
+            <p>Définit la propriété css à définir pour l'élément selectionné.</p>
+
+            <code><span class="property">inside-property</span> :string</code>
+            <p>Définit la propriété interne à définir pour l'élément selectionné.</p>
+
+            <code><span class="property">value</span> :string</code>
+            <p>Définit la valeur de la propriété.</p>
+
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+
+        <p>Spaceset peut être utilisée pour définir une propriété filter :</p>
+        <p><code class="comment">// CSS de départ : filter: opacity(0.5) blur(5px)</code><br><br>
+        <code>ea(<span class="string">'selecteur'</span>).spaceset(<span class="string">'filter', 'opacity', '1'</span>);</code><br><br>
+        <code class="comment">// CSS d'arrivée : filter: opacity(1) blur(5px)</code></p>
+
+
+    </div>
+                

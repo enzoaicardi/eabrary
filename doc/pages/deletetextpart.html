@@ -1,0 +1,75 @@
+
+    <h3 class="method">. deleteTextPart</h3>
+
+    <p>Permet de masquer une partie de texte ou inline-block.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'</span>).deleteTextPart(<span class="property">max-width, inside-timeout, animation-duration, reverse</span>);</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+            <code><span class="property">max-width</span> :string</code>
+            <p>Définit taille maximale des élements à invisibiliser.</p>
+
+            <code><span class="property">inside-timeout</span> :number</code>
+            <p>Définit le temps entre les animation des propriétés max-width et color.</p>
+
+            <code><span class="property">animation-duration</span> :number</code>
+            <p>Définit la durée de l'animation.</p>
+
+            <code><span class="property">reverse</span> :boolean <span class="comment">//optionnel</span></code>
+            <p>Définit si l'animation doit s'inverser si l'événement se déclenche plus d'une fois, sinon il ne se passera rien.</p>
+
+    </div>
+
+    <div class="practice">
+
+        <h4>HTML / CSS</h4>
+
+        <p>La structure suivante est necessaire pour permettre la création du deleteTextPart.<br>
+            Les balises "p" et "span" peuvent être remplacées par n'importe quelles balises de type inline ou inline-block.</p>
+
+        <code>
+            &lt;p&gt;<br>
+                &emsp;some text here<br>
+                &emsp;&lt;span class=<span class="string">"custom"</span>&gt;text who disappear&lt;/span&gt;<br>
+                &emsp;some text here<br>
+            &lt;/p&gt;
+        </code>
+
+        <p>Pas de classes par défaut pour cette méthode.</p>
+        <code>none</code>
+                    
+        <p>Les éléments suivant sont personnalisables</p>
+        <code>
+            p<br>
+            span
+        </code>
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+        <p>click on the box event</p>
+
+        <article class="sandbox">
+
+            <p>Delete <span class="ea-dtp">this&nbsp;</span>now</p>
+
+        </article>
+
+        <i>delete "this", reverse true</i>
+
+    </div>
+
+    <!-- Execution du script -->
+    <img width="0" height="0" src="pages/onload.svg" onload="
+        ea('.sandbox').on('click', function(e){
+        if(sleep(e, 1400)==true){return false;}
+        ea('.ea-dtp').deleteTextPart('40px', 200, 1, true);});
+    ">
+                

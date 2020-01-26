@@ -1,0 +1,48 @@
+
+    <h3 class="method">. cssproperty</h3>
+
+    <p>Permet de changer la propriété css transition-property d'un élément du DOM.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'</span>).cssproperty(<span class="property">property</span>);</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+            <code><span class="property">property</span> :string</code>
+            <p>Définit la propriété transition-property de l'élément. Par exemple <code class="string">'margin-top, margin left'</code></p>
+
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+        <p>click on the box event</p>
+
+        <article class="sandbox">
+
+            <p>background</p>
+
+        </article>
+
+        <i>set cssproperty to color</i>
+
+    </div>
+
+    <!-- Execution du script -->
+    <img width="0" height="0" src="pages/onload.svg" onload="
+        ea('.sandbox p').transition('1s ease');
+        setInterval(() => {
+            ea('.sandbox p').set('background-color', '#222222');
+            ea('.sandbox p').delay(1000).set('background-color', '#cccccc');
+            ea('.sandbox p').set('color', 'white');
+            ea('.sandbox p').delay(1000).set('color', 'black');
+        }, 2000);
+        ea('.sandbox').on('click', function(e){
+        ea('.sandbox p').cssproperty('color');
+        console.log('event fired');}, true);
+    ">
+                

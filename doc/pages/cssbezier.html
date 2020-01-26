@@ -1,0 +1,45 @@
+
+    <h3 class="method">. cssbezier</h3>
+
+    <p>Permet de changer la propriété css transition-timing-function d'un élément du DOM.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'</span>).cssbezier(<span class="property">property</span>);</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+            <code><span class="property">property</span> :string</code>
+            <p>Définit la propriété transition-timing-function de l'élément. Par exemple <code class="string">'cubic-bezier(.13,1.69,.44,.12)'</code></p>
+
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+        <p>click on the box event</p>
+
+        <article class="sandbox">
+
+            <p>background</p>
+
+        </article>
+
+        <i>set cssbezier to cubic-bezier(.13,1.69,.44,.12)</i>
+
+    </div>
+
+    <!-- Execution du script -->
+    <img width="0" height="0" src="pages/onload.svg" onload="
+        setInterval(() => {
+            ea('.sandbox').set('background-color', '#222222');
+            ea('.sandbox').delay(1000).set('background-color', '#cccccc');
+        }, 2000);
+        ea('.sandbox').cssduration(1).on('click', function(e){
+        ea('.sandbox').cssbezier('cubic-bezier(.13,1.69,.44,.12)');
+        console.log('event fired');}, true);
+    ">
+                

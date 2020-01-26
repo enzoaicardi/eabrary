@@ -1,0 +1,44 @@
+
+    <h3 class="method">. interval</h3>
+
+    <p>Permet d'ajouter un interval d'execution pour chaque élément du DOM.</p>
+
+    <div class="syntax">
+        <h4>Syntaxe</h4>
+        <code>ea(<span class="string">'selecteur'</span>).interval(<span class="property">duration</span>);</code>
+    </div>
+
+    <div class="arguments">
+
+        <h4>Arguments</h4>
+
+        <code><span class="property">duration</span> :number</code>
+        <p>Définit le l'interval d'execution pour tout les éléments du DOM ciblés par la méthode qui suit, attention car les méthodes suivantes sont affectées par cet interval dans le cas d'un chaînage de propriétés.<br>
+            Cet argument peut prendre la valeur <code class="string">'reset'</code> ou <code class="comment">0</code> pour annuler l'interval définit dans le cas d'un chaînage.</p>
+        
+    </div>
+
+    <div class="exemple">
+
+        <h4>Exemple</h4>
+        <p>click on the box event</p>
+
+        <article class="sandbox">
+
+            <p>text 1</p>
+            <p>text 2</p>
+            <p>text 3</p>
+
+        </article>
+
+        <i>set background-color red every 2000ms</i>
+
+    </div>
+
+    <!-- Execution du script -->
+    <img width="0" height="0" src="pages/onload.svg" onload="
+        ea('.sandbox').on('click', function(e){
+        ea('.sandbox p').interval(2000).set('background-color', 'red');
+    });
+    ">
+                
