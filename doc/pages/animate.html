@@ -14,12 +14,13 @@
 
             <code><span class="property">array</span> :array</code>
             <p>Il s'agit de spécifier un tableau de propriétés et de valeurs pour créer une animation complexe rapidement.
-            Nous conseillons l'utilisation de cette méthode plutôt qu'un enchaînement de set, add, delay... Cette méthode est plus sûre et performante.</p>
+            Nous conseillons l'utilisation de cette méthode plutôt qu'un enchaînement de set, add, delay... Cette méthode est plus sûre et performante.<br>
+            Chaque animation chainée s'executera à la fin de l'animation précédente à partir de la version 0.3.8.</p>
 
             <p>Voir la section ci-dessous pour plus d'informations.</p>
 
             <code><span class="property">wait-the-end</span> :boolean <span class="comment">//optionnel</span></code>
-            <p>Spécifiez "true" si vous souhaité que chaque animation se déclanche après celle d'avant.</p>
+            <p>Spécifiez "true" si vous souhaité que chaque animation se déclenche après celle d'avant.</p>
 
     </div>
 
@@ -59,7 +60,7 @@
 
         <p>Il est aussi possible d'activer le mode "nodelay" comme ceci :</p>
         <code>[<br><br>
-            &emsp;<span class="string">'nodelay'</span><br><br>
+            &emsp;<span class="string">'nodelay',</span><br><br>
             &emsp;<span class="comment">1000</span>,{<br><br>
                 &emsp;&emsp;&emsp;<span class="property">backgroundColor:</span><span class="string"> 'red'</span>,&emsp;<br>
                 &emsp;&emsp;&emsp;<span class="property">delay:</span><span class="string"> 1000</span><br><br>
