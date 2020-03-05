@@ -67,10 +67,8 @@
     <!-- Execution du script -->
     <img width="0" height="0" src="pages/onload.svg" onload="
         ea('.sandbox').on('click', function(e){
-        if(sleep(1, 3800)==true){return false;}else{
-        ea('.custom-fadeelement').fadeElement('0px', '140px', 'vt', 1)
-        .delay(1400).fadeElement('140px', '-100px', 'vt', 0)
-        .delay(1400).fadeElement('-100px', '0px', 'vt', 1);
+        if(sleep(1, 2400)==true){return false;}else{
+        ea('.custom-fadeelement').fadeElement('0px', '140px', 'vt', 1).delay(1400).fadeElement('140px', '-100px', 'vt', 0).fadeElement('-100px', '0px', 'vt', 1);
         }
     }
     );">
