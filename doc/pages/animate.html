@@ -1,7 +1,9 @@
 
     <h3 class="method">. animate</h3>
 
-    <p>Permet de créer une animation complexe sur un ou plusieurs éléments du DOM.</p>
+    <p>Permet de créer une animation complexe sur un ou plusieurs éléments du DOM.<br>
+    Animate est une méthode puissante capable de gérer les delais et les transitions de manière intuitive.<br>
+    Animate est aussi capable de transitionner n'importe quel chemin SVG ou SVG complet à partir d'une copie.</p>
 
     <div class="syntax">
         <h4>Syntaxe</h4>
@@ -20,56 +22,150 @@
             <p>Voir la section ci-dessous pour plus d'informations.</p>
 
             <code><span class="property">wait-the-end</span> :boolean <span class="comment">//optionnel</span></code>
-            <p>Spécifiez "true" si vous souhaité que chaque animation se déclenche après celle d'avant.</p>
+            <p>Spécifiez "true" si vous souhaitez que chaque animation se déclenche après la précédente (incompatible avec .interval) pour chaque élément ciblé.</p>
 
     </div>
 
-    <div class="arguments">
+    <div class="sommaire">
 
-        <h4>Array</h4>
+        <h4>Sommaire</h4>
 
-        <p>Le tableau peut être spécifié au préalable et appelé via une variable ou être directement passé dans la chaîne d'arguments de la méthode animate.
-        <br>Le tableau se rédige de cette manière :</p>
+        <p>1 - Syntaxe</p>
+        <p>2 - Les delais</p>
+        <p>3 - Mode sans delais</p>
+        <p>4 - Stagger</p>
+        <p>5 - Path Morphing (SVG)</p>
+        <p>6 - SVG Morphing (SVG)</p>
+        
+    </div>
 
-        <code>[<br><br>
-            &emsp;<span class="comment">durée(ms)</span>,{<br><br>
-                &emsp;&emsp;&emsp;<span class="property">propriété:</span><span class="string"> 'valeur'</span>,&emsp;<br>
-                &emsp;&emsp;&emsp;<span class="property">propriété:</span><span class="string"> 'valeur'</span><br><br>
-            &emsp;},<span class="string">'timing-function'</span>,<br><br>
-            &emsp;<span class="comment">durée(ms)</span>,{<br><br>
-                &emsp;&emsp;&emsp;<span class="property">propriété:</span><span class="string"> 'valeur'</span>,<br>
-                &emsp;&emsp;&emsp;<span class="property">propriété:</span><span class="string"> 'valeur'</span><br><br>
-            &emsp;} <br><br>
-        ]</code><br><br>
+    <div class="partie">
 
-        <p>Ainsi dans l'exemple ci-dessous :</p>
-        <code>[<br><br>
-            &emsp;<span class="comment">1000</span>,{<br><br>
-                &emsp;&emsp;&emsp;<span class="property">backgroundColor:</span><span class="string"> 'red'</span>,&emsp;<br>
-                &emsp;&emsp;&emsp;<span class="property">delay:</span><span class="string"> 1000</span><br><br>
-            &emsp;},<br><br>
-            &emsp;<span class="comment">500</span>,{<br><br>
-                &emsp;&emsp;&emsp;<span class="property">backgroundColor:</span><span class="string"> 'blue'</span><br><br>
-            &emsp;}, <span class="string">'ease'</span> <br><br>
-        ]</code><br>
+        <h4>1 - Syntaxe</h4>
 
-        <p>On commence par un changement de couleur de fond à 'red' qui prendra 1s. Ensuite on ajoute un delais de 1s pour la prochaine animation.<br>
-        Une fois ce temps écoulé on change la courbe de bézier de 'linear' à 'ease', puis on on oppére un chagement la couleur de fond à 'blue' qui prendra 0.5s.</p>
+        <p>La méthode <code>.animate<span class="sign">()</span></code> prend comme argument principal un tableau contenant un ensemble de données :</p>
+        <code>ea(<span class="string">'selecteur'</span>).animate( [<span class="property">donnée1, donnée2, ...</span>] )</code>
 
-        <h4>Mode sans-délais</h4>
+        <h5>Ordre des données</h5>
 
-        <p>Il est aussi possible d'activer le mode "nodelay" comme ceci :</p>
-        <code>[<br><br>
-            &emsp;<span class="string">'nodelay',</span><br><br>
-            &emsp;<span class="comment">1000</span>,{<br><br>
-                &emsp;&emsp;&emsp;<span class="property">backgroundColor:</span><span class="string"> 'red'</span>,&emsp;<br>
-                &emsp;&emsp;&emsp;<span class="property">delay:</span><span class="string"> 1000</span><br><br>
-            &emsp;},<br><br>
-            &emsp;<span class="comment">500</span>,{<br><br>
-                &emsp;&emsp;&emsp;<span class="property">backgroundColor:</span><span class="string"> 'blue'</span><br><br>
-            &emsp;}, <span class="string">'ease'</span> <br><br>
-        ]</code><br>
-        <p>Ainsi toutes les animations se produiront en même temps avec leur propre timing et fonction, seule la propriété "delay" permet d'ajouter du delais à toutes les animations qui suivent.</p>
+        <p>Les données doivent êtres organisées en lignes selon un certain ordre pour être comprises par eabrary.<br>
+        L'ordre est le suivant :</p>
+        <code class="sign">[ <span class="comment">durée animation (ms)</span>, { <span class="property">propriété:</span> <span class="string">'valeur'</span> }, <span class="string">'courbe de bézier'</span> ]</code>
+
+        <h5>Tableau multi-ligne</h5>
+
+        <p>Le tableau peut contenir plusieurs lignes de ce type et chaque accolade peut contenir plusieurs pairs de propriété et valeurs (chaque pair devant être séparée par une virgule).<br>
+        On obtient alors un tableau qui ressemble généralement à ceci :</p>
+
+        <code class="sign">
+
+            [<br><br>
+            &emsp;&emsp;<span class="comment">durée(ms)</span> , {<br><br>
+            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété1:</span> <span class="string">'valeur'</span> ,<br>
+            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété2:</span> <span class="string">'valeur'</span> ,<br>
+            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété3:</span> <span class="string">'valeur'</span><br><br>
+            &emsp;&emsp;} , <span class="string">'courbe de bézier'</span> ,<br><br>
+            &emsp;&emsp;<span class="comment">durée(ms)</span> , {<br><br>
+            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété1:</span> <span class="string">'valeur'</span> ,<br>
+            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété2:</span> <span class="string">'valeur'</span> ,<br>
+            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété3:</span> <span class="string">'valeur'</span><br><br>
+            &emsp;&emsp;} , <span class="string">'courbe de bézier'</span> ,  <br><br>
+            ]
+
+        </code>
+        
+    </div>
+
+    <div class="partie">
+
+        <h4>2 - Les delais</h4>
+        
+        <p>Avec la méthode animate chaque durée d'animation est ajouté comme delais avant de jouer la prochaine animation, ainsi chaque bloc de propriétés sera executé l'un après l'autre en fonction de la durée du précédent.</p>
+        <code class="sign">[ <span class="comment">durée animation (ms)</span>, { <span class="property">propriété:</span> <span class="string">'valeur'</span> }, <span class="string">'courbe de bézier'</span> <span class="comment">// delais ajouté équivalent à 'durée animation(ms)'</span> ]</code>
+
+        <h5>Ajout manuel</h5>
+
+        <p>Mais il est possible aussi d'ajouter artificiellement du delais entre les blocs d'animation avec la combinaison propriété & valeur suivante :</p>
+        <code class="sign">{ <span class="property">delay:</span> <span class="comment">delais(ms)</span> }</code>
+        <p>Le delais est à spécifier à l'intérieur du bloc d'animation.</p>
+
+    </div>
+
+    <div class="partie">
+
+        <h4>3 - Mode sans délais</h4>
+        
+        <p>Pour spécifier différentes durées pour des animations de propriétés différentes dont on veux que le déroulement soit simultané, il est possible de spécifier une valeur 'nodelay' ou 'nd' qui fait en sorte que la durée de l'animation ne soit pas ajoutée au délais global.</p>
+        <code class="sign">[ <span class="comment">durée animation (ms)</span>, { <span class="property">propriété:</span> <span class="string">'valeur'</span> }, <span class="string">'courbe de bézier'</span> , <span class="string">'nodelay'</span> <span class="comment">// aucun délais ajouté'</span> ]</code>
+
+        <h5>Portée globale</h5>
+
+        <p>Il est possible d'appliquer le mode 'nodelay' à l'ensemble des blocs, pour se faire il faut spécifier 'all-nodelay' comme première entrée du tableau.</p>
+        <code class="sign">[ <span class="string">'all-nodelay'</span> , ... }</code>
+
+    </div>
+
+    <div class="partie">
+
+        <h4>4 - Stagger</h4>
+        
+        <p>Avec la propagation stagger il est possible d'utiliser différentes clés dans la syntaxe qui retourneront différentes valeurs :<br>
+        :d: > distance avec la cible.<br>
+        :x: > distance horizontale avec la cible<br>
+        :y: > distance verticale avec la cible<br>
+        :b: > distance la plus grande avec la cible<br>
+        :l: > distance la plus petite avec la cible<br></p>
+        <p>Il est possible d'effectuer des calculs avec ces données <code class="property">transform: <span class="string">'rotate(:x*y:deg)'</code> par exemple.</p>
+
+        <h5>Multiplicateur global</h5>
+
+        <p>Pour impacter la totalité de ces valeurs il est possible de spécifier un multiplicateur sous forme de tableau après le bloc d'animation.</p>
+        <code class="sign">[ <span class="comment">durée animation (ms)</span>, { <span class="property">propriété:</span> <span class="string">'valeur'</span> }, [<span class="comment">multiplicateur(nb)</span>] <span class="string">'courbe de bézier'</span> ]</code>
+
+    </div>
+
+    <div class="partie">
+
+        <h4>5 - Path Morphing (SVG)</h4>
+        
+        <p>Animate a la possibilité de modifier n'importe quel chemin d'un élément SVG grace à la pair ci-dessous (à condition que le selecteur ea() pointe vers le 'path' élément).</p>
+        <code class="sign">{ <span class="property">path:</span> <span class="string">'chemin SVG'</span> }</code>
+        <p>Si vous rencontrez de mauvaises performances avec cette methode il est conseillé d'ajouter un court délais artificiel au début du bloc d'animation pour palier le retard machine.</p>
+
+        <h5>Le mode</h5>
+
+        <p>Il existe deux modes de Morphing pour le 'Path Morphing' ou le 'SVG Morphing' :<br>
+        > 'curve' [default] : transforme le chemin en courbes souples.<br>
+        > 'line' : garde les lignes et donne une transition plus brutte.</p>
+        <p>Le mode se change grace à la pair ci-dessous :</p>
+        <code class="sign">{ <span class="property">mode:</span> <span class="string">'curve|line'</span> }</code>
+    
+    </div>
+
+    <div class="partie">
+
+        <h4>6 - SVG Morphing (SVG)</h4>
+        
+        <p>Animate a la possibilité de modifier n'importe quel SVG grace à la pair ci-dessous (Nécessite un svg modèle pouvant être caché grace aux balises 'defs' et 'symbol').</p>
+        <code class="sign">{ <span class="property">svg:</span> <span class="string">'querySelector de l'élément à copier (svg ou symbol)'</span> }</code>
+        <p>Si vous rencontrez de mauvaises performances avec cette methode il est conseillé d'ajouter un court délais artificiel au début du bloc d'animation pour palier le retard machine.</p>
+
+        <p>Ajouter les attributs suivants au SVG à copier pour le masquer sans affecter ses propriétés :</p>
+        <code class="property">aria-hidden=<span class="string">"true"</span> style=<span class="string">"position: absolute; width: 0; height: 0; overflow: hidden;"</span></code>
+
+        <h5>Le mode</h5>
+
+        <p>Il existe deux modes de Morphing pour le 'Path Morphing' ou le 'SVG Morphing' :<br>
+        > 'curve' [default] : transforme le chemin en courbes souples.<br>
+        > 'line' : garde les lignes et donne une transition plus brutte.</p>
+        <p>Le mode se change grace à la pair ci-dessous :</p>
+        <code class="sign">{ <span class="property">mode:</span> <span class="string">'curve|line'</span> }</code>
+    
+        <h5>La préservation de l'affichage</h5>
+
+        <p>Par défaut Animate ne préserve pas le format du SVG copié qui sera donc copié dans sa taille d'origine.</p>
+        <p>Pour que le SVG copié s'adapte à la taille de sa nouvelle fenêtre pour la remplir il est necessaire d'utiliser la pair suivante avant la propriété svg :</p>
+        <code class="sign">{ <span class="property">viewbox:</span> <span class="string">'preserve'</span> }</code>
 
     </div>
 
@@ -80,27 +176,25 @@
 
         <article class="sandbox">
 
+            <svg class="change" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px"><path fill="#cfd8dc" d="M44,24c0,11.044-8.956,20-20,20S4,35.044,4,24S12.956,4,24,4S44,12.956,44,24z"/><path fill="#448aff" d="M41,24c0,9.391-7.609,17-17,17S7,33.391,7,24S14.609,7,24,7S41,14.609,41,24z"/><path fill="#ff3d00" d="M21.898,21.898l4.203,4.203l9.199-13.402L21.898,21.898z"/><path fill="#bf360c" d="M24,24l11.301-11.301l-9.199,13.402L24,24z"/><path fill="#fff" d="M21.898,21.898l-9.199,13.402l13.402-9.199L21.898,21.898z"/><path fill="#bdbdbd" d="M24,24L12.699,35.301l13.402-9.199L24,24z"/><path fill="#bbdefb" d="M17.102,10.699c0.598-0.301,1.199-0.598,1.797-0.801l1.203,2.703l-1.801,0.797L17.102,10.699z M36,25h2.898c0-0.301,0.102-0.699,0.102-1s0-0.699-0.102-1H36V25z M12.699,14.102l2.102,2.098l1.398-1.398l-2.098-2.102C13.602,13.199,13.199,13.602,12.699,14.102z M25,9.102C24.699,9,24.301,9,24,9s-0.699,0-1,0.102V12h2V9.102z M30.398,10.5c-0.598-0.301-1.199-0.5-1.898-0.699l-1.102,2.801l1.902,0.699L30.398,10.5z M12.5,20.5l0.699-1.898L10.5,17.5c-0.301,0.602-0.5,1.199-0.699,1.898L12.5,20.5z M12,23H9.102C9,23.301,9,23.699,9,24s0,0.699,0.102,1H12V23z M35.5,27.5l-0.699,1.898L37.5,30.5c0.301-0.602,0.5-1.199,0.699-1.898L35.5,27.5z M38.102,18.898c-0.203-0.598-0.5-1.199-0.801-1.797l-2.699,1.199l0.797,1.801L38.102,18.898z M35.301,33.898l-2.102-2.098l-1.398,1.398l2.098,2.102C34.398,34.801,34.801,34.398,35.301,33.898z M13.398,29.699l-0.797-1.801l-2.703,1.203c0.203,0.598,0.5,1.199,0.801,1.797L13.398,29.699z M29.699,34.602l-1.801,0.797l1.203,2.703c0.598-0.203,1.199-0.5,1.797-0.801L29.699,34.602z M20.5,35.5l-1.898-0.699L17.5,37.5c0.602,0.301,1.199,0.5,1.898,0.699L20.5,35.5z M25,38.898V36h-2v2.898c0.301,0,0.699,0.102,1,0.102S24.699,39,25,38.898z"/></svg>
+        
         </article>
 
-        <i>animate en mode delais</i>
+        <i>svg : '#chrome'</i>
 
     </div>
+
+    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+    <symbol id="chrome" viewBox="0 0 48 48">
+        <path fill="#4caf50" d="M44,24c0,11.044-8.956,20-20,20S4,35.044,4,24S12.956,4,24,4S44,12.956,44,24z"/><path fill="#ffc107" d="M24,4v20l8,4l-8.843,16c0.317,0,0.526,0,0.843,0c11.053,0,20-8.947,20-20S35.053,4,24,4z"/><path fill="#4caf50" d="M44,24c0,11.044-8.956,20-20,20S4,35.044,4,24S12.956,4,24,4S44,12.956,44,24z"/><path fill="#ffc107" d="M24,4v20l8,4l-8.843,16c0.317,0,0.526,0,0.843,0c11.053,0,20-8.947,20-20S35.053,4,24,4z"/><path fill="#f44336" d="M41.84,15H24v13l-3-1L7.16,13.26H7.14C10.68,7.69,16.91,4,24,4C31.8,4,38.55,8.48,41.84,15z"/><path fill="#dd2c00" d="M7.158,13.264l8.843,14.862L21,27L7.158,13.264z"/><path fill="#558b2f" d="M23.157,44l8.934-16.059L28,25L23.157,44z"/><path fill="#f9a825" d="M41.865,15H24l-1.579,4.58L41.865,15z"/><path fill="#fff" d="M33,24c0,4.969-4.031,9-9,9s-9-4.031-9-9s4.031-9,9-9S33,19.031,33,24z"/><path fill="#2196f3" d="M31,24c0,3.867-3.133,7-7,7s-7-3.133-7-7s3.133-7,7-7S31,20.133,31,24z"/>
+    </symbol>
+    </defs>
+    </svg>
 
     <!-- Execution du script -->
     <img width="0" height="0" src="pages/onload.svg" onload="
         ea('.sandbox').on('click', function(e){
-
-        if(sleep(e, 2400)==true){return false;}
-        ea('.sandbox').animate([
-            1000,{
-               backgroundColor: 'red', 
-               delay: 1000
-             },
-             500,{
-               transitionTimingFunction: 'ease',
-               backgroundColor: 'blue'
-             }
-
-            ]);
-    });">
+            once(()=>{ea('.change').animate([1000,{delay: 100,svg:'#chrome'},'ease']);});
+        });">
                 
