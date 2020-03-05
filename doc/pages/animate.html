@@ -60,16 +60,16 @@
         <code class="sign">
 
             [<br><br>
-            &emsp;&emsp;<span class="comment">durée(ms)</span> , {<br><br>
-            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété1:</span> <span class="string">'valeur'</span> ,<br>
-            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété2:</span> <span class="string">'valeur'</span> ,<br>
-            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété3:</span> <span class="string">'valeur'</span><br><br>
-            &emsp;&emsp;} , <span class="string">'courbe de bézier'</span> ,<br><br>
-            &emsp;&emsp;<span class="comment">durée(ms)</span> , {<br><br>
-            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété1:</span> <span class="string">'valeur'</span> ,<br>
-            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété2:</span> <span class="string">'valeur'</span> ,<br>
-            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété3:</span> <span class="string">'valeur'</span><br><br>
-            &emsp;&emsp;} , <span class="string">'courbe de bézier'</span> ,  <br><br>
+            &emsp;&emsp;<span class="comment">durée(ms)</span>, {<br><br>
+            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété1:</span> <span class="string">'valeur'</span>,&emsp;&emsp;<br>
+            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété2:</span> <span class="string">'valeur'</span>,&emsp;&emsp;<br>
+            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété3:</span> <span class="string">'valeur'</span>&emsp;&emsp;<br><br>
+            &emsp;&emsp;} , <span class="string">'courbe de bézier'</span>,<br><br>
+            &emsp;&emsp;<span class="comment">durée(ms)</span>, {<br><br>
+            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété1:</span> <span class="string">'valeur'</span>,&emsp;&emsp;<br>
+            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété2:</span> <span class="string">'valeur'</span>,&emsp;&emsp;<br>
+            &emsp;&emsp;&emsp;&emsp;<span class="property">propriété3:</span> <span class="string">'valeur'</span>&emsp;&emsp;<br><br>
+            &emsp;&emsp;} , <span class="string">'courbe de bézier'</span> <br><br>
             ]
 
         </code>
@@ -101,7 +101,7 @@
         <h5>Portée globale</h5>
 
         <p>Il est possible d'appliquer le mode 'nodelay' à l'ensemble des blocs, pour se faire il faut spécifier 'all-nodelay' comme première entrée du tableau.</p>
-        <code class="sign">[ <span class="string">'all-nodelay'</span> , ... }</code>
+        <code class="sign">[ <span class="string">'all-nodelay'</span> , ... ]</code>
 
     </div>
 
@@ -195,6 +195,6 @@
     <!-- Execution du script -->
     <img width="0" height="0" src="pages/onload.svg" onload="
         ea('.sandbox').on('click', function(e){
-            once(()=>{ea('.change').animate([1000,{delay: 100,svg:'#chrome'},'ease']);});
-        });">
+            ea('.change').animate([1000,{delay: 100,svg:'#chrome'},'ease'])
+        }, true);">
                 
