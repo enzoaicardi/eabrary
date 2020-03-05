@@ -136,20 +136,20 @@ body{
         color: var(--textgray);
         font-size: 18px;
         font-weight: 300;
-        text-align: justify;
+        text-align: center;
     }
 
     .main-header .new{
 
         font-family: Arial;
 
-        padding: 10px;
+        /* padding: 10px; */
 
         font-size: 14px;
         color: rgb(51, 126, 51);
         line-height: 22px;
 
-        background-color: rgb(163, 233, 169);
+        /* background-color: rgb(163, 233, 169); */
         border: none;
     }
 
@@ -161,7 +161,7 @@ body{
             padding-left: 6px;
             padding-right: 6px;
             border-radius: 5px;
-            margin-right: 6px;
+            margin-right: 2px;
 
             font-size: 14px;
             color: white;
