@@ -36,8 +36,7 @@ document.querySelector('div.singlepath').addEventListener('click',function(){
   for(let [name, paths] of Object.entries(svg_test_list[test_un_inc])){
     console.log("### PATH NAME : "+name);
     ea('.single-path > path').animate([
-      1000,{delay: 0,viewbox:'preserve',path: paths},'ease',
-      1000,{delay: 0,viewbox:'preserve',path: 'M16 0c-5.523 0-10 4.477-10 10 0 10 10 22 10 22s10-12 10-22c0-5.523-4.477-10-10-10zM16 16c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z'},'linear'
+      1000,{delay: 100,viewbox:'preserve',path: paths},'ease'
     ]);
   }
   test_un_inc++;}
@@ -73,9 +72,9 @@ document.querySelector('div.multipath').addEventListener('click',function(){
   for(let [name, path] of Object.entries(svg_test_list_multi[test_un_inc_multi])){
     console.log("### PATH NAME : "+name);
     ea('.multi-path').animate([
-      1000,{delay: 0,viewbox:'preserve',mode:'line',svg:'#'+path},'ease',
-      1000,{delay: 1000,viewbox:'preserve',mode:'curve',svg:'#chrome'},'linear'
+      1000,{delay: 100,viewbox:'preserve',svg:'#'+path},'ease'
     ]);
   }
   test_un_inc_multi++;}
 });
+
