@@ -3,7 +3,8 @@
 
     <p>Permet de créer une animation complexe sur un ou plusieurs éléments du DOM.<br>
     Animate est une méthode puissante capable de gérer les delais et les transitions de manière intuitive.<br>
-    Animate est aussi capable de transitionner n'importe quel chemin SVG ou SVG complet à partir d'une copie.</p>
+    Animate est aussi capable de transitionner n'importe quel chemin SVG ou SVG complet à partir d'une copie.<br>
+    Retrouvez nos <a href="../demos/svgmorphing.html">démos ici.</a></p>
 
     <div class="syntax">
         <h4>Syntaxe</h4>
@@ -28,7 +29,7 @@
 
     <div class="sommaire">
 
-        <h4>Sommaire</h4>
+        <h4>Sommaire</h4><br>
 
         <p>1 - Syntaxe</p>
         <p>2 - Les delais</p>
@@ -88,6 +89,10 @@
         <p>Mais il est possible aussi d'ajouter artificiellement du delais entre les blocs d'animation avec la combinaison propriété & valeur suivante :</p>
         <code class="sign">{ <span class="property">delay:</span> <span class="comment">delais(ms)</span> }</code>
         <p>Le delais est à spécifier à l'intérieur du bloc d'animation.</p>
+
+        <h5>Optimiser les transitions</h5>
+
+        <p>En cas de problème il est recommandé d'essayer d'ajouter un delais atificiel avant la première animation.</p>
 
     </div>
 
@@ -167,6 +172,20 @@
         <p>Pour que le SVG copié s'adapte à la taille de sa nouvelle fenêtre pour la remplir il est necessaire d'utiliser la pair suivante avant la propriété svg :</p>
         <code class="sign">{ <span class="property">viewbox:</span> <span class="string">'preserve'</span> }</code>
 
+        <h5>Délais entre les chemins</h5>
+
+        <p>Il est possible d'ajouter un délais entre chaque transition de chaque chemin grâce à la pair suivante :</p>
+        <code class="sign">{ <span class="property">path_delay:</span> <span class="comment">durée(ms)</span> }</code>
+
+        <h5>Bon vs Mauvais SVG</h5>
+
+        <p>Ce qui fera toute la différence sur la transition et le bon fonctionnement du morphing c'est avant tout la qualité de votre SVG, voici quelques recommandations pour s'assurer que l'animation fonctionne :</p>
+        <p>> Limiter le nombre de calques (balises g)<br>
+        > Régler l'opacité directement sur les chemins<br>
+        > Limiter les formes et privilégier les chemins (bien que le support des forme soit très bon)<br>
+        > Eviter les propriétés de transformation (translate, matrix, etc.) sur les calques comme sur les chemins<br>
+        > Eabrary ne gère pas l'addition des translates de calques à chemin pour des raisons de performances
+        > Evitez les commentaires HTML au sein de vos SVG</p>
     </div>
 
     <div class="exemple">

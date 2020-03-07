@@ -1,0 +1,61 @@
+*{
+    font-family: 'Montserrat Alternates', Arial, Helvetica, sans-serif;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+
+    background-color: #ccc;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-size: 14px;
+    color: #555;
+    font-weight: 600;
+
+    margin: 0px;
+}
+
+p{
+    font-size: 14px;
+    color: #555;
+    font-weight: 400;
+
+    margin-top: 0px;
+    margin-bottom: 6px;
+}
+
+div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+    width: 120px;
+    height: 120px;
+
+    border-radius: 10px;
+    background-color: #aaa;
+
+    margin-bottom: 20px;
+}
+
+div > svg{
+    width: 80px;
+    height: 80px;
+}
+
+div > svg.single-path{
+    fill: #555;
+    /* stroke: #555;
+    stroke-width: 0.5; */
+}
