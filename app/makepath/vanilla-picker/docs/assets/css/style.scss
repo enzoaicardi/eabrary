@@ -32,26 +32,6 @@ h2 {
 }
 
 
-.abo-linkbtn {
-    @extend .btn;
-
-    display: inline-block;
-    width: auto;
-    margin: 0;
-
-    background-image: linear-gradient(gold, orangered); //linear-gradient(mediumturquoise, lightseagreen);
-    background-clip: padding-box;
-    color: white;
-    border-color: white;
-
-    &:hover {
-        background-image: linear-gradient(gold, orange);
-        color: white;
-        border-color: white;
-    }
-}
-
-
 #example-container {
     margin-left: 1em;
     float: right;
