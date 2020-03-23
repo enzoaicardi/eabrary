@@ -934,9 +934,11 @@ main svg{
 
 }
 
-.save-local input{
+.editeur .save-local input{
 
+    flex: none;
     text-align: left;
+    width: 80%;
 
 }
 
