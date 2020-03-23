@@ -169,7 +169,8 @@ function openSCP(string){
 
         let newPath = all_datas[i].split('+');
 
-        let data_id = newPath[1].match(/(?<=data-id: )[0-9]{1,}/);
+        let data_id = newPath[1].match(/data-id: [0-9]{1,}/);
+        data_id = data_id[0].match(/[0-9]{1,}/);
         let newAttr = newPath[1].replace(/data-id: [0-9]{1,}/, '');
 
         newCoord[data_id] = newPath[0].match(/[A-Z] ([0-9-]{1,} [0-9-]{1,} {0,1}){1,}/g);
